@@ -1,0 +1,137 @@
+@use '../partials/index' as *;
+
+nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    @include themify($themes) {
+        background-color: themed('navbarBg');
+        color: themed('navbarText');
+    }
+    padding: 0.8rem 1.2rem;
+
+    // Global  list style
+    ul {
+        @include flex(flex-start, center, row, $nav-links-space);
+        li {
+            cursor: pointer;
+            transition: color 0.3s ease;
+            &:hover {
+                @include themify($themes) {
+                    color: themed('navbarTextHover');
+                }
+            }
+        }
+    }
+
+    // Mobile sidebar logic
+    &:not(#mobile-sidebar) {
+        flex-wrap: wrap;
+    }
+    #menu-hamburger {
+        cursor: pointer;
+        margin-inline-end: 5px;
+        display: none;
+    }
+    #mobile-sidebar {
+        position: fixed;
+        transform: translateX(-100%);
+        transition: transform ease-in 0.2s;
+        top: 0;
+        left: 0;
+        width: min(500px, 80%);
+        height: 100vh;
+        padding-left: 1rem;
+
+        @include themify($themes) {
+            background-color: themed('sideBarBg');
+            color: themed('navbarText');
+        }
+        menu {
+            display: flex;
+            padding-block: 1rem;
+            margin-block-end: 1rem;
+            box-shadow: 0 1 2px 0 rgba(0, 0, 0, 0.1);
+
+            #close-mobile-sidebar svg g {
+                @include themify($themes) {
+                    stroke: themed('navbarText');
+                }
+            }
+        }
+
+        #logo-placer {
+            flex: 1;
+        }
+
+        ul {
+            @include flex(center, flex-start, column, 1rem);
+            li {
+                width: 100%;
+                padding: 0.5rem;
+
+                &:hover {
+                    @include themify($themes) {
+                        background-color: themed('sideBarLinksHover');
+                    }
+                }
+            }
+        }
+        &.open {
+            animation: open-navbar 0.3s linear;
+            transform: translateX(0);
+        }
+    }
+
+    // Main navigations
+    #logo-placer {
+        height: 2rem;
+        @include flex(flex-start, center);
+
+        gap: 10px;
+        margin-inline-end: 10px;
+        &__image {
+            height: 100%;
+        }
+    }
+
+    #main-navigation {
+        flex: 1;
+    }
+    #navigation-side {
+        display: none;
+    }
+}
+
+@media screen and (min-width: $desktop-size) {
+    nav {
+        #navigation-side {
+            @include flex(flex-start, center, row, $nav-links-space);
+            margin-inline-end: 1rem;
+        }
+    }
+}
+
+@media screen and (max-width: $mobile-size) {
+    nav {
+        justify-content: space-between;
+        #menu-hamburger {
+            display: block;
+        }
+        #logo-placer {
+            flex: 1;
+        }
+        ul:not(#mobile-sidebar ul) {
+            display: none;
+        }
+    }
+}
+
+@keyframes open-navbar {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
