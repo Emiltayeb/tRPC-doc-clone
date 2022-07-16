@@ -1,0 +1,17 @@
+@use './variables' as V;
+
+%button {
+  background: none;
+  padding: 10px 25px;
+  padding: 1rem 1.2rem;
+  border-radius: 5px;
+}
+
+.button--primary {
+  @extend %button;
+  border: 1px solid white;
+  &:hover {
+    background-color: white;
+    color: V.$blue-secondary;
+  }
+}

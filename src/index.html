@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles/reset.css" />
+    <link rel="stylesheet" href="./assets/styles/global.scss" />
+    <script type="module" deffer src="./app.ts"></script>
+  </head>
+  <body class="theme-light">
+    <div class="backdrop"></div>
+    <!-- Navigation -->
+    <nav>
+      <!-- Hamburger menu -->
+      <svg
+        id="menu-hamburger"
+        width="30"
+        height="30"
+        viewBox="0 0 30 30"
+        aria-hidden="true"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-miterlimit="10"
+          stroke-width="2"
+          d="M4 7h22M4 15h22M4 23h22"
+        ></path>
+      </svg>
+
+      <!-- mobile sidebar -->
+      <div id="mobile-sidebar">
+        <menu>
+          <div id="logo-placer">
+            <img id="logo" src="./assets/images/logo-no-text.svg" alt="" />
+            tRPC
+          </div>
+          <button id="close-mobile-sidebar">
+            <svg viewBox="0 0 15 15" width="21" height="21">
+              <g stroke-width="1.2">
+                <path d="M.75.75l13.5 13.5M14.25.75L.75 14.25"></path>
+              </g>
+            </svg>
+          </button>
+        </menu>
+        <ul>
+          <li>
+            <a href="#"> Docs </a>
+          </li>
+          <li>
+            <a href="#"> Quickstart </a>
+          </li>
+          <li>
+            <a href="#"> Awsome Stuff </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Main Navigation -->
+      <!-- Logo -->
+      <div id="logo-placer">
+        <img
+          id="logo-placer__image"
+          src="./assets/images/logo-no-text.svg"
+          alt=""
+        />
+        tRPC
+      </div>
+
+      <ul id="main-navigation">
+        <li>Docs</li>
+        <li>Quickstart</li>
+        <li>Awsome Trpc Collection</li>
+        <li>Usage With Next.js</li>
+      </ul>
+      <!-- Side bar -->
+      <ul id="navigation-side">
+        <li>
+          <a href="#"> Github </a
+          ><svg
+            width="13.5"
+            height="13.5"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            class="iconExternalLink_I5OW"
+          >
+            <path
+              fill="currentColor"
+              d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
+            ></path>
+          </svg>
+        </li>
+        <li>
+          <a href="#"> Twiiter </a
+          ><svg
+            width="13.5"
+            height="13.5"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            class="iconExternalLink_I5OW"
+          >
+            <path
+              fill="currentColor"
+              d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
+            ></path>
+          </svg>
+        </li>
+        <li>
+          <a href="#"> Discord </a
+          ><svg
+            width="13.5"
+            height="13.5"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            class="iconExternalLink_I5OW"
+          >
+            <path
+              fill="currentColor"
+              d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"
+            ></path>
+          </svg>
+        </li>
+      </ul>
+
+      <div id="navigation-utils">
+        <!-- Light dark mode -->
+        <button id="toggle-theme">
+          <svg
+            id="moon-icon"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="darkToggleIcon_nQuB"
+          >
+            <path
+              fill="currentColor"
+              d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"
+            ></path>
+          </svg>
+        </button>
+        <!-- Search bar -->
+      </div>
+    </nav>
+    <!-- Header -->
+    <header>
+      <section class="container">
+        <h1>tRPC</h1>
+        <h2>End-to-end typesafe APIs made easy</h2>
+        <img src="https://storage.googleapis.com/trpc/trpcgif.gif" alt="" />
+
+        <p>
+          The client doesn't import <i>any</i> code from the server, only a
+          single TypeScript type. The
+          <span class="highlight"> import type </span>
+          declaration is fully erased at runtime. tRPC transforms this type into
+          a fully typesafe client.
+        </p>
+        <a class="button--primary" href="#">Get Started</a>
+      </section>
+    </header>
+    <!-- Hero section -->
+    <main>
+      <article id="featuers">
+        <section class="container">
+          <div id="featuers__discription">
+            <div>
+              <h2>🧙‍♂️ Automatic typesafety</h2>
+              <p>
+                Automatic typesafety & autocompletion inferred from your
+                API-paths, their input data, & outputs.
+              </p>
+            </div>
+            <div>
+              <h2>🍃 Light & Snappy DX</h2>
+              <p>
+                No code generation, run-time bloat, or build pipeline. Zero
+                dependencies & a tiny client-side footprint.
+              </p>
+            </div>
+            <div>
+              <h2>🐻 Add to existing brownfield project</h2>
+              <p>
+                Easy to add to your existing brownfield project with adapters
+                for Connect/Express/Next.js.
+              </p>
+            </div>
+          </div>
+          <p class="footnotes">
+            <span class="highlight">@trpc/client</span> depends on some babel
+            runtime helpers + that a fetch() polyfill/ponyfill is used if the
+            browser doesn't support it. @trpc/react is built on top of
+            react-query.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <!-- Features -->
+
+    <!-- Footer -->
+  </body>
+</html>

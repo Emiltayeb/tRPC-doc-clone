@@ -1,0 +1,52 @@
+@use './variables' as V;
+
+$themes: (
+  light: (
+    navbarBg: white,
+    navbarText: black,
+    navbarTextHover: V.$blue-secondary,
+    header: V.$blue-secondary,
+    featuresBg: white,
+    featuresText: black,
+    sideBarBg: white,
+    sideBarBgText: black,
+    sideBarLinksHover: V.$side-navigation-links-hover-light,
+  ),
+  dark: (
+    navbarBg: V.$dark-main,
+    navbarText: white,
+    navbarTextHover: V.$blue-secondary,
+    header: V.$blue-primary,
+    featuresBg: V.$dark-main,
+    featuresText: white,
+    sideBarBg: V.$dark-secondary,
+    sideBarBgText: white,
+    sideBarLinksHover: V.$side-navigation-links-hover-dark,
+  ),
+);
+
+/*
+ * Implementation of themes
+ */
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

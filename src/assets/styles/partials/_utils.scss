@@ -1,0 +1,39 @@
+@use './variables' as V;
+
+.no-scroll {
+  height: 100%;
+  overflow: hidden;
+}
+.container {
+  max-width: V.$container-width;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.footnotes {
+  font-size: 0.9em;
+  margin: auto;
+  max-width: 605px;
+  font-weight: 300;
+}
+
+.highlight {
+  background-color: #ffffff20;
+  padding: 0.1rem;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  transition-timing-function: ease-in-out;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  &.visible {
+    visibility: visible;
+  }
+}

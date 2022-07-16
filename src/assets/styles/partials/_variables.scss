@@ -1,0 +1,18 @@
+$blue-primary: #004a72;
+$blue-secondary: #2596be;
+$dark-main: #18191a;
+$dark-secondary: #242526;
+$secondary-main: #303846;
+$nav-links-space: 2rem;
+$side-navigation-links-hover-dark: hsla(0, 0%, 100%, 0.05);
+$side-navigation-links-hover-light: #f2f2f2;
+$container-width: 1140px;
+
+$desktop-size: 1320px;
+$tablet-size: 960px;
+$mobile-size: 768px;
+
+body[data-theme='dark'] {
+  --dark-main: white;
+  --blue-main: #2596be;
+}
